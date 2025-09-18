@@ -6,6 +6,6 @@ import {worker} from '../model/worker.model';
 })
 export class WorkerService {
 
-  Workers: worker[] = []
+  Workers: worker[] = [];
 
 }

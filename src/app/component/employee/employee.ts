@@ -61,4 +61,18 @@ export class Employee {
     this.workers = this.workers.filter(w => w.id !== index);
   }
 
+
+  editWorkers: number | null = null;
+  editWorker(index: number){
+    this.editWorkers = index;
+  }
+
+  saveEdit(){
+    this.editWorkers = null;
+  }
+
+  cancelEdit(){
+    this.editWorkers = null;
+  }
+
 }
