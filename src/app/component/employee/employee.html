@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row g-3 align-items-end">
+    <h3 class="text-uppercase fw-bold text-center text-primary">Add a new Employee</h3>
+    <hr>
+
+    <div class="col">
+      <label class="form-label fw-bold" for="id">ID</label>
+      <input type="number" id="id" name="id" [(ngModel)]="newId" class="form-control border
+      border-primary rounded-3 focus-ring focus-ring-primary"
+      #id="ngModel" required [class.is-invalid]="id.invalid && id.touched">
+      <small class="text-danger" *ngIf="id.invalid && id.touched">workers id is required</small>
+    </div>
+
+    <div class="col">
+      <label class="form-label fw-bold" for="fName">First Name</label>
+      <input type="text" id="fName" name="firstname" [(ngModel)]="newFirstName" class="form-control border
+      border-primary rounded-3 focus-ring focus-ring-primary"
+      #fname="ngModel" required [class.is-invalid]="fname.invalid && fname.touched">
+      <small class="text-danger" *ngIf="fname.invalid && fname.touched">firstname is required</small>
+    </div>
+
+    <div class="col">
+      <label class="form-label fw-bold" for="LName">Last Name</label>
+      <input type="text" id="LName" name="Lastname" [(ngModel)]="newLastName" class="form-control border
+      border-primary rounded-3 focus-ring focus-ring-primary"
+             #Lname="ngModel" required [class.is-invalid]="Lname.invalid && Lname.touched">
+      <small class="text-danger" *ngIf="Lname.invalid && Lname.touched">lastname is required</small>
+    </div>
+
+    <div class="col">
+      <label class="form-label fw-bold" for="position">Position</label>
+      <input type="text" id="position" name="position" [(ngModel)]="newPosition" class="form-control border
+      border-primary rounded-3 focus-ring focus-ring-primary"
+             #position="ngModel" required [class.is-invalid]="position.invalid && position.touched">
+      <small class="text-danger" *ngIf="position.invalid && position.touched">position is required</small>
+    </div>
+
+    <div class="col">
+      <label class="form-label fw-bold" for="department">Department</label>
+      <input type="text" id="department" name="department" [(ngModel)]="newDepartment" class="form-control border
+      border-primary rounded-3 focus-ring focus-ring-primary"
+             #department="ngModel" required [class.is-invalid]="department.invalid && department.touched">
+      <small class="text-danger" *ngIf="department.invalid && department.touched">department is required</small>
+    </div>
+
+    <div class="col">
+      <label class="form-label fw-bold" for="email">Email</label>
+      <input type="email" id="email" name="department" [(ngModel)]="newEmail" class="form-control border
+      border-primary rounded-3 focus-ring focus-ring-primary"
+             #email="ngModel" required [class.is-invalid]="email.invalid && email.touched">
+      <small class="text-danger" *ngIf="email.invalid && email.touched">email is required</small>
+    </div>
+
+    <div class="col">
+      <label class="form-label fw-bold" for="phone">Phone</label>
+      <input type="number" id="phone" name="department" [(ngModel)]="newPhone" class="form-control border
+      border-primary rounded-3 focus-ring focus-ring-primary"
+             #phone="ngModel" required [class.is-invalid]="phone.invalid && phone.touched">
+      <small class="text-danger" *ngIf="phone.invalid && phone.touched">phone is required</small>
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-primary" (click)="addWorker()"
+      [disabled]="email.invalid || phone.invalid || department.invalid || position.invalid || Lname.invalid || fname.invalid || id.invalid"
+      >Add Worker</button>
+    </div>
+
+    <hr>
+
+    <div *ngIf="workers.length > 0">
+      <h3 class="text-uppercase fw-bold text-center text-primary">Employee List</h3>
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="table-primary">
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let worker of workers; let i = index">
+            <td>{{ worker.id }}</td>
+            <td>{{ worker.firstname }}</td>
+            <td>{{ worker.lastname }}</td>
+            <td>{{ worker.position }}</td>
+            <td>{{ worker.department }}</td>
+            <td>{{ worker.email }}</td>
+            <td>{{ worker.phone }}</td>
+            <td><button class="btn btn-danger btn-sm" (click)="deleteWorker(i)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+  </div>
+</div>
+</div>
