@@ -127,14 +127,16 @@
               <input type="number" [(ngModel)]="worker.phone" class="form-control border
               border-primary rounded-3 focus-ring focus-ring-primary">
             </td>
+            
             <td>
-              <button class="btn btn-danger btn-sm me-2" (click)="deleteWorker(worker.id)">Delete</button>
-              <button class="btn btn-primary" *ngIf="editWorkers !== i" (click)="editWorker(i)"> Update
-                <div *ngIf="editWorkers === i">
-                  <button class="btn btn-success btn-sm" (click)="editWorkers = -1">Save</button>
-                  <button class="btn btn-secondary btn-sm" (click)="editWorkers = null">Cancel</button>
+              <button class="btn btn-danger me-2" *ngIf="editWorkers !== i" (click)="deleteWorker(worker.id)">Delete</button>
+              
+              <button class="btn btn-primary" *ngIf="editWorkers !== i" (click)="editWorker(i)">Update</button>
+
+              <div *ngIf="editWorkers === i">
+                  <button class="btn btn-success btn-sm me-2" (click)="saveEdit(i)">Save</button>
+                  <button class="btn btn-secondary btn-sm" (click)="cancelEdit()">Cancel</button>
                 </div>
-              </button>
             </td>
           </tr>
         </tbody>

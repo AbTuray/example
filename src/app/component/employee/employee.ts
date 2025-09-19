@@ -67,7 +67,7 @@ export class Employee {
     this.editWorkers = index;
   }
 
-  saveEdit(){
+  saveEdit(index: number){
     this.editWorkers = null;
   }
 
